@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 WITH CTE AS (
 SELECT 
 TO_TIMESTAMP(STARTED_AT) AS STARTED_AT,
@@ -9,7 +7,7 @@ HOUR(TO_TIMESTAMP(STARTED_AT)) AS HOUR_STARTED_AT,
 
 {{get_season('STARTED_AT')}} AS STATION_OF_YEAR
 
-FROM {{ source('demo','BIKE') }}
+FROM {{ ref("stg_bike") }}
 WHERE STARTED_AT <> 'started_at'
 )
 
