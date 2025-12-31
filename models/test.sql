@@ -1,1 +1,1 @@
-SELECT * FROM {{ source('demo', 'BIKE') }} LIMIT 10;
+SELECT * FROM {{ source('demo', 'BIKE') }} LIMIT 10
